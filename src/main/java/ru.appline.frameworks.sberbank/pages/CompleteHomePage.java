@@ -133,15 +133,15 @@ public class CompleteHomePage extends BasePage {
         WebElement element = null;
         switch (nameField) {
             case "Стоимость недвижимости":
-                fillInputField(costHomeInput, value);
+                fillInputField(costHomeInput, cleanNumber(value));
                 element = costHomeInput;
                 break;
             case "Первоначальный взнос":
-                fillInputField(initFeeInput, value);
+                fillInputField(initFeeInput, cleanNumber(value));
                 element = initFeeInput;
                 break;
             case "Срок кредита":
-                fillInputField(creditDateinput, value);
+                fillInputField(creditDateinput, cleanNumber(value));
                 element = creditDateinput;
                 break;
             default:

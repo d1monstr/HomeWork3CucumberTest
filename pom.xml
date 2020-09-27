@@ -56,7 +56,7 @@
             <artifactId>allure-cucumber-jvm</artifactId>
             <version>${llure-cucumber-jvm.version}</version>
         </dependency>
-        
+
     </dependencies>
 
     <build>
@@ -86,12 +86,6 @@
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/reports/allure-results</allure.results.directory>
                     </systemPropertyVariables>
-                    <properties>
-                        <property>
-                            <name>listener</name>
-                            <value>ru.appline.frameworks.ru.appline.sberbank.utils.MyAllureListener</value>
-                        </property>
-                    </properties>
                 </configuration>
                 <dependencies>
                     <dependency>
