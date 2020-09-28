@@ -10,7 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.appline.frameworks.sberbank.managers.ManagerPages;
-import ru.appline.frameworks.sberbank.managers.TestPropManager;
 
 import static ru.appline.frameworks.sberbank.managers.DriverManager.getDriver;
 
