@@ -7,10 +7,10 @@ import ru.appline.frameworks.sberbank.managers.ManagerPages;
 
 public class Steps {
 
-    protected ManagerPages app = ManagerPages.getManagerPages();
+    private ManagerPages app = ManagerPages.getManagerPages();
 
     @Когда("^Загрузка стартовой страницы$")
-    public void getStartPage(){
+    public void getInitialPage(){
         app.getStartPage();
     }
 
@@ -21,12 +21,12 @@ public class Steps {
 
     @Когда("^Переход в меню '(.*)'$")
     public void selectMenu(String nameMenu){
-        app.getStartPage().closeCookies().selectMenu(nameMenu);
+        app.getStartPage().selectMenu(nameMenu);
     }
 
     @Когда("^Переход на страницу '(.*)'$")
     public void selectSubMenu(String nameSubMenu){
-        app.getStartPage().closeCookies().selectSubMenu(nameSubMenu);
+        app.getStartPage().selectSubMenu(nameSubMenu);
     }
 
     @Когда("^Заполнение поле/значение$")
@@ -42,7 +42,7 @@ public class Steps {
     public void checkboxIs(DataTable dataTable) {
         dataTable.cells().forEach(
                 raw -> {
-                    app.getCompleteHomePage().fillField(raw.get(0), raw.get(1));
+                    app.getCompleteHomePage().checkboxIs(raw.get(0), Boolean.valueOf(raw.get(1)));
                 }
         );
     }

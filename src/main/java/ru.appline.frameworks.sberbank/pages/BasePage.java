@@ -23,7 +23,6 @@ public class BasePage {
     protected Actions action = new Actions(getDriver());
     protected JavascriptExecutor js = (JavascriptExecutor) getDriver();
     protected WebDriverWait wait = new WebDriverWait(getDriver(), 10, 1000);
-    public static TestPropManager props = TestPropManager.getTestPropManager();
 
     public BasePage() {
         PageFactory.initElements(getDriver(), this);

@@ -7,7 +7,6 @@ public class ManagerPages {
 
     private static ManagerPages managerPages;
 
-
     private static StartPage startPage;
 
     private static CompleteHomePage completeHomePage;
@@ -40,20 +39,4 @@ public class ManagerPages {
         startPage = null;
         completeHomePage = null;
     }
-
-//
-//    public CartPage getCartPage() {
-//        if (cartPage == null) {
-//            cartPage = new CartPage();
-//        }
-//        return cartPage;
-//    }
-//
-//    public ProductPage getProductPage() {
-//        if (productPage == null) {
-//            productPage = new ProductPage();
-//        }
-//        return productPage;
-//    }
-
 }

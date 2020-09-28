@@ -1,27 +1,29 @@
 package steps;
 
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.qameta.allure.Allure;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import ru.appline.frameworks.sberbank.managers.DriverManager;
 import ru.appline.frameworks.sberbank.managers.InitManager;
-import ru.appline.frameworks.sberbank.managers.TestPropManager;
-import static ru.appline.frameworks.sberbank.managers.DriverManager.getDriver;
-import static ru.appline.frameworks.sberbank.utils.PropConst.APP_URL;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Hooks {
 
-    @BeforeClass
-    public static void before() {
+    @Before
+    public void beforeEach(){
         InitManager.initFramework();
     }
 
-    @Before
-    public void beforeEach(){
-        getDriver().get(TestPropManager.getTestPropManager().getProperty(APP_URL));
-    }
 
-    @AfterClass
-    public static void after() {
+    @After
+    public void afterEach() {
+        byte[] screenShot = ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.BYTES);
+        Allure.getLifecycle().addAttachment(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MMM-yy_hh:mm:ss")), "image/png", "png", screenShot);
         InitManager.quitFramework();
     }
 
